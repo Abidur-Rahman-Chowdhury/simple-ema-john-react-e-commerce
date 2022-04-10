@@ -8,9 +8,10 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassowrd, setConfirmPassword] = useState('');
-    const [error, setError] = useState('');
-    const navigate = useNavigate()
-  const [createUserWithEmailAndPassword,hookError,user]= useCreateUserWithEmailAndPassword(auth);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const [createUserWithEmailAndPassword, hookError, user] =
+    useCreateUserWithEmailAndPassword(auth);
   const handelEmailBlur = (event) => {
     setEmail(event.target.value);
   };
@@ -19,11 +20,11 @@ const SignUp = () => {
   };
   const handelConfirmPasswordBlur = (event) => {
     setConfirmPassword(event.target.value);
-    };
-    
-    if (user) {
-        navigate('/')
-    }
+  };
+
+  if (user) {
+    navigate('/');
+  }
   const handelCreateUser = (event) => {
     event.preventDefault();
     if (password !== confirmPassowrd) {
@@ -34,8 +35,7 @@ const SignUp = () => {
       setError('Password must be 6 Characters or longer');
       return;
     }
-      createUserWithEmailAndPassword(email, password);
-          
+    createUserWithEmailAndPassword(email, password);
   };
   return (
     <div className="form-container">
